@@ -24,7 +24,6 @@ app.get("/first", (req, res) => {
         }
     })
 })
-//table 
 app.get("/second", (req, res) => {
     let sql = "CREATE TABLE stat(Locationid int AUTO_INCREMENT, acases int, recovered int, deaths int, PRIMARY KEY(Locationid))";
     con.query(sql, (err,result) => {
@@ -35,8 +34,6 @@ app.get("/second", (req, res) => {
         }
     })
 })
-
-//create
 app.get("/third", (req, res) => {
     let newRow = {Locationid: 25, acases: 25, recovered: 21, deaths: 3};
     let sql = "INSERT INTO stat SET ?";
@@ -48,7 +45,6 @@ app.get("/third", (req, res) => {
         }
     });
 });
-//create another record
 app.get("/third", (req, res) => {
     let newRow = {Locationid: 25, acases: 25, recovered: 60, deaths: 2};
     let sql = "INSERT INTO stat SET ?";
@@ -60,7 +56,6 @@ app.get("/third", (req, res) => {
         }
     });
 });
-//read
 app.get("/fourth", (req, res) => {
     let sql = "SELECT * FROM stat";
     con.query(sql,(err,result) => {
@@ -71,7 +66,6 @@ app.get("/fourth", (req, res) => {
         }
     });
 });
-//port
 app.listen(PORT, () => {
     console.log("Listening to PORT " + PORT + "....");
    });
