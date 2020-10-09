@@ -21,12 +21,12 @@ con.connect((err) =>{
 });
 //database
 app.get("/first", (req, res) => {
-    let sql = "CREATE DATABASE GlobalCovidDb";
+    let sql = "CREATE DATABASE CovidDb";
     con.query(sql, (err,result) => {
         if(!err){
             res.send("Successfully created database");
         }else{
-            res.send("failed to create school database....")
+            res.send("failed to create  database....")
         }
     })
 })
@@ -37,35 +37,7 @@ app.get("/second", (req, res) => {
         if(!err){
             res.send(result);
         }else{
-            res.send("failed to create  table....")
+            res.send("failed to create table....")
         }
     })
 })
-
-//create
-app.get("/third", (req, res) => {
-    let newRow = {Locationid: 24, acases: 23, recovered: 60, deaths: 2};
-    let sql = "INSERT INTO stat SET ?";
-    con.query(sql, newRow, (err,result) => {
-        if(!err){
-            res.send(result);
-        }else{
-            res.send("failed to insert into  table....")
-        }
-    });
-});
-//read
-app.get("/fourth", (req, res) => {
-    let sql = "SELECT * FROM stat";
-    con.query(sql,(err,result) => {
-        if(!err){
-            res.send(result);
-        }else{
-            res.send("failed to read  table....")
-        }
-    });
-});
-//port
-app.listen(PORT, () => {
-    console.log("Listening to PORT " + PORT + "....");
-   });
